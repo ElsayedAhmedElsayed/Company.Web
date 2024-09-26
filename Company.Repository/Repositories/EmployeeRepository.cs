@@ -17,6 +17,13 @@ namespace Company.Repository.Repositories
         {
             _context = context;
         }
-      
+
+        public IEnumerable<Employee> GetEmployeeByAddress(string address)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Employee> GetEmployeeByName(string name)
+        =>_context.Employees.Where(x=>x.Name.Trim().ToLower().Contains(name.Trim().ToLower())).ToList();
     }
 }
