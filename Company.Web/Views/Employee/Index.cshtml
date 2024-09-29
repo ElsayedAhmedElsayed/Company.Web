@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Employee>
+﻿@model IEnumerable<EmployeeDto>
 @ViewBag.Message
 <h1>All Employees</h1>
 
@@ -44,6 +44,9 @@
             {
                 <tr>
                     <td>@employee.Name</td>
+                     <td>
+                    <img src="~/Files/Images/@employee.ImgeUrl" height="40" width="40" />
+                </td>
                     <td>@employee.Age</td>
                     <td>@employee.Address</td>
                     <td>@Html.DisplayFor(m => employee.Salary)</td>

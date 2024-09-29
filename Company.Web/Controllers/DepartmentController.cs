@@ -1,6 +1,7 @@
 ﻿using Company.Data.Models;
 using Company.Repository.Interfaces;
 using Company.Service.Interfaces;
+using Company.Service.Interfaces.Department.Dto;
 using Company.Service.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,7 +28,7 @@ namespace Company.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Department department)
+        public IActionResult Create(DepartmentDto department)
         {
             try
             {
@@ -58,21 +59,21 @@ namespace Company.Web.Controllers
             return View(viewname,dept);
         }
 
-        [HttpGet]
-        public IActionResult Update(int? id)
-        {
-            return Details(id,"Update");
-        }
+        //[HttpGet]
+        //public IActionResult Update(int? id)
+        //{
+        //    return Details(id,"Update");
+        //}
 
-        [HttpPost]
-        public IActionResult Update(int? id,Department department)
-        {
-            if (department.Id == id.Value)
-                return RedirectToAction("Not FoundPage", null, "Name");
+        //[HttpPost]
+        //public IActionResult Update(int? id,DepartmentDto department)
+        //{
+        //    if (department.Id == id.Value)
+        //        return RedirectToAction("Not FoundPage", null, "Name");
 
-            _departmentService.Update(department);
-            return RedirectToAction(nameof(Index));
-        }
+        //    //_departmentService.Update(department);
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         public IActionResult Delete(int id)
         {
@@ -83,8 +84,8 @@ namespace Company.Web.Controllers
                 return RedirectToAction("Not Foundpage", null, "Home");
 
             }
-            _departmentService.Update(dept);
-            //_departmentService.Delete(dept);
+            //_departmentService.Update(dept);
+            _departmentService.Delete(dept);
 
             return RedirectToAction(nameof(Index));
         }
