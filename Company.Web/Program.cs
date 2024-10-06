@@ -83,7 +83,7 @@ namespace Company.Web
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{area=admin}/{controller=AccountController}/{action=SignUp}");
 
             app.Run();
         }
